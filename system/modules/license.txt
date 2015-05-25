@@ -1,0 +1,27 @@
+Lizenzvereinbarung für Contao-Erweiterungen
+
+
+der Agentur medienworx, Hauptstrasse Nr. 6, 5112 Lamprechtshausen, Österreich, sowie der Agentur medienworx, Ligusterweg 15, 85375 Neufahrn, Deutschland
+
+im Folgenden kurz medienworx genannt
+
+
+1. Die vertragsgegenständliche Contao-Erweiterung ist ein Software-Modul zur Erweiterung des Content Management Systems Contao in den jeweils bei den Systemvoraussetzungen angegebenen Versionen.
+
+Es wird ausdrücklich darauf hingewiesen, dass die vertragsgegenständliche Contao-Erweiterung nicht unter der GNU/GPL oder der LGPL steht. Soweit die Erweiterung Software von Drittanbietern (z.B. Frameworks) enthält, gelten zusätzlich deren Lizenzbestimmungen.
+
+2. Mit der vollständigen Bezahlung der Lizenz erwerben die Kunden von medienworx das nicht exklusive, zeitlich unbefristete und örtlich unbeschränkte Recht zur Nutzung der vertragsgegenständlichen Contao-Erweiterung zur gleichzeitigen Verwendung
+
+* unter einer Domain
+* sowie der dazugehörigen Entwicklungsdomain (= kein öffentlicher Echtbetrieb)
+* sowie für Testzwecke unter Localhost
+
+Eine weitergehende Vervielfältigung ist nicht zulässig bzw. bedarf zusätzlicher Lizenzen. Die Domains müssen beim Kauf angegeben werden. Die Einhaltung der Nutzungsbestimmungen wird über einen zentralen Lizenzierungsserver überwacht. Die Erweiterung muss zur Funktionsfähigkeit den Lizenzserver via Internet kontaktieren können.
+
+3. Die Lizenz beinhaltet kein Recht zur Bearbeitung. Die Quelldateien sind verschlüsselt und vor Bearbeitung geschützt.
+
+4. Die Lizenz berechtigt zur Nutzung der Contao-Erweiterung in der erworbenen Version sowie zum Bezug aller eventuell zukünftig erscheinenden Updates. Die Entscheidung, ob Updates erstellt werden, obliegt ausschließlich medienworx. Mit dieser Lizenz ist keinerlei Verpflichtung von medienworx zur Erstellung von Updates verbunden.
+
+5. Eine gesicherte Kompatibilität der vertragsgegenständlichen Contao-Erweiterung besteht nur mit den in den Systemvoraussetzungen angegebenen Contao-Versionen und anderen Contao-Erweiterungen. Eine Kompatibilität mit anderen, in den Systemvoraussetzungen nicht genannten Contao-Versionen oder Contao-Erweiterungen ist möglich, wird aber ausdrücklich nicht zugesichert.
+
+6. Es gelten die unter http://medienworx.eu/agb.html veröffentlichten AGB von medienworx.
