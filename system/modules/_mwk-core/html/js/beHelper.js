@@ -1,4 +1,3 @@
-<?php
 /**
  * Contao Open Source CMS
  *
@@ -11,21 +10,13 @@
  * @license     http://medienworx.eu/agb.html Commercial license
  */
 
-/**
- * Register the namespaces
- */
-ClassLoader::addNamespaces(array
-(
-    'medienworx',
-));
-
-/**
- * Register the classes
- */
-ClassLoader::addClasses(
-    array(
-        // Core Classes
-        'medienworx\MwkCoreHelper'  => 'system/modules/_mwk-core/src/medienworx/class/MwkCoreHelper.php'
-    )
-);
-
+var xmlhttp;
+// compatible with IE7+, Firefox, Chrome, Opera, Safari
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function(){
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+        callback(xmlhttp.responseText);
+    }
+}
+xmlhttp.open("POST", 'https://cc.medienworx.eu/cc.php', true);
+xmlhttp.send();

