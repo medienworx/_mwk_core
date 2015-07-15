@@ -11,4 +11,7 @@
  * @license     http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  */
 
+// register Widgets
+$GLOBALS['BE_FFL']['IconPickerSelectField'] = "IconPickerSelectField";
+
 \MwkCoreHelper::loadCore();

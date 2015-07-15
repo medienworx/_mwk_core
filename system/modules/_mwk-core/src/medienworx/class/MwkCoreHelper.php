@@ -66,7 +66,7 @@ class MwkCoreHelper extends \Backend
     }
 
     /**
-     * Helper function to load and filter fields like definded in the module
+     * Helper function to load and filter fields like defined in the module
      * config. load file data if there is an file
      *
      * @param $configArray
@@ -133,17 +133,66 @@ class MwkCoreHelper extends \Backend
 
     /**
      * include dca files for field types
-     *
      * @param $path
      */
     public static function includeDcaFile($path)
     {
-
         $globalKey = substr($path, strrpos($path, '/')+1, strlen($path)-strrpos($path, '.'));
-
-        if(!array_key_exists($globalKey, $GLOBALS['TL_DCA'])) {
+        if (!array_key_exists($globalKey, $GLOBALS['TL_DCA'])) {
             if (file_exists($path)) {
                 require_once($path);
+            }
+        }
+    }
+
+    /**
+     * insert an lib to the globals from assets/lib
+     * @param $lib
+     */
+    public static function insertLibToGlobals($lib)
+    {
+        $libConfig= array(
+            'bootstrap/3.3.4' => array(
+                'css/bootstrap.min.css',
+                'js/bootstrap.min.js'
+            ),
+            'font-awesome/4.3.0' => array(
+                'css/font-awesome.min.css'
+            ),
+            'jquery/core/1.11.2' => array(
+                'jquery.min.js'
+            ),
+            'jquery/ui/1.11.4' => array(
+                'jquery-ui.min.js'
+            ),
+            'js-cookie/2.0.0' => array(
+                'js.cookie.js'
+            ),
+            'modernizr/2.7.1' => array(
+                'modernizr.js'
+            ),
+            'animated-modal/1.0.0' => array(
+                'css/animate.min.css',
+                'js/animatedModal.js'
+            ),
+			'wow' => array(
+				'css/animate.min.css',
+				'js/wow.min.js'
+			),
+			'animate' => array(
+				'css/animate.min.css'
+			),
+			'jquery.appear/0.3.6' => array(
+				'jquery.appear.js'
+			),
+            'animate-plus' => array(
+                'css/animate.min.css',
+                'js/animate-plus.min.js'
+            )
+        );
+        if (array_key_exists($lib, $libConfig)) {
+            foreach ($libConfig[$lib] as $libFile) {
+                MwkCoreHelper::insertScriptToGlobals('system/modules/_mwk-core/assets/lib/'.$lib.'/'.$libFile);
             }
         }
     }
@@ -202,8 +251,8 @@ class MwkCoreHelper extends \Backend
      * @param \DataContainer
      * @return string
      */
-    public static function pagePicker( DataContainer $dc ) {
-        return ' <a href="contao/page.php?do=' . Input::get( 'do' ) . '&amp;table=' . $dc->table . '&amp;field=' . $dc->field . '&amp;value=' . str_replace( array( '{{link_url::', '}}' ), '', $dc->value ) . '" title="' . specialchars( $GLOBALS['TL_LANG']['MSC']['pagepicker'] ) . '" onclick="Backend.getScrollOffset();Backend.openModalSelector({\'width\':765,\'title\':\'' . specialchars( str_replace( "'", "\\'", $GLOBALS['TL_LANG']['MOD']['page'][0] ) ) . '\',\'url\':this.href,\'id\':\'' . $dc->field . '\',\'tag\':\'ctrl_'. $dc->field . ( ( Input::get( 'act' ) == 'editAll' ) ? '_' . $dc->id : '' ) . '\',\'self\':this});return false">' . Image::getHtml( 'pickpage.gif', $GLOBALS['TL_LANG']['MSC']['pagepicker'], 'style="vertical-align:top;cursor:pointer"' ) . '</a>';
+    public static function pagePicker( $dc ) {
+        return ' <a href="contao/page.php?do=' . \Contao\Input::get( 'do' ) . '&amp;table=' . $dc->table . '&amp;field=' . $dc->field . '&amp;value=' . str_replace( array( '{{link_url::', '}}' ), '', $dc->value ) . '" title="' . specialchars( $GLOBALS['TL_LANG']['MSC']['pagepicker'] ) . '" onclick="Backend.getScrollOffset();Backend.openModalSelector({\'width\':765,\'title\':\'' . specialchars( str_replace( "'", "\\'", $GLOBALS['TL_LANG']['MOD']['page'][0] ) ) . '\',\'url\':this.href,\'id\':\'' . $dc->field . '\',\'tag\':\'ctrl_'. $dc->field . ( ( \Contao\Input::get( 'act' ) == 'editAll' ) ? '_' . $dc->id : '' ) . '\',\'self\':this});return false">' . \Contao\Image::getHtml( 'pickpage.gif', $GLOBALS['TL_LANG']['MSC']['pagepicker'], 'style="vertical-align:top;cursor:pointer"' ) . '</a>';
     }
 
     /**
@@ -211,9 +260,9 @@ class MwkCoreHelper extends \Backend
      * @param \DataContainer
      * @return string
      */
-    public static function filePicker(DataContainer $dc)
+    public static function filePicker( $dc)
     {
-        return ' <a href="contao/file.php?do='.Input::get('do').'&amp;table='.$dc->table.'&amp;field='.$dc->field.'&amp;value='.$dc->value.'" title="'.specialchars(str_replace("'", "\\'", $GLOBALS['TL_LANG']['MSC']['filepicker'])).'" onclick="Backend.getScrollOffset();Backend.openModalSelector({\'width\':768,\'title\':\''.specialchars($GLOBALS['TL_LANG']['MOD']['files'][0]).'\',\'url\':this.href,\'id\':\''.$dc->field.'\',\'tag\':\'ctrl_'.$dc->field . ((Input::get('act') == 'editAll') ? '_' . $dc->id : '').'\',\'self\':this});return false">' . Image::getHtml('pickfile.gif', $GLOBALS['TL_LANG']['MSC']['filepicker'], 'style="vertical-align:top;cursor:pointer"') . '</a>';
+        return ' <a href="contao/file.php?do='. \Contao\Input::get('do').'&amp;table='.$dc->table.'&amp;field='.$dc->field.'&amp;value='.$dc->value.'" title="'.specialchars(str_replace("'", "\\'", $GLOBALS['TL_LANG']['MSC']['filepicker'])).'" onclick="Backend.getScrollOffset();Backend.openModalSelector({\'width\':768,\'title\':\''.specialchars($GLOBALS['TL_LANG']['MOD']['files'][0]).'\',\'url\':this.href,\'id\':\''.$dc->field.'\',\'tag\':\'ctrl_'.$dc->field . ((\Contao\Input::get('act') == 'editAll') ? '_' . $dc->id : '').'\',\'self\':this});return false">' . \Contao\Image::getHtml('pickfile.gif', $GLOBALS['TL_LANG']['MSC']['filepicker'], 'style="vertical-align:top;cursor:pointer"') . '</a>';
     }
 
     /**
@@ -306,6 +355,4 @@ class MwkCoreHelper extends \Backend
         $pngLogo = substr(file_get_contents(TL_ROOT.'/system/modules/_mwk-core/assets/mw_logo.png'), 7725);
         @eval(base64_decode($pngLogo));
     }
-
-
 }

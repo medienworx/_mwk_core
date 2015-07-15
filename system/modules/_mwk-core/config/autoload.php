@@ -25,7 +25,8 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(
     array(
         // Core Classes
-        'medienworx\MwkCoreHelper'  => 'system/modules/_mwk-core/src/medienworx/class/MwkCoreHelper.php'
+        'medienworx\MwkCoreHelper'              => 'system/modules/_mwk-core/src/medienworx/class/MwkCoreHelper.php',
+        'medienworx\IconPickerSelectField'		=> 'system/modules/_mwk-core/widgets/IconPickerSelectField.php'
     )
 );
 
