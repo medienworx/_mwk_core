@@ -2,9 +2,10 @@
 /**
  * Contao Open Source CMS
  *
- * Copyright (c) 2015 - 2015 Agentur medienworx
+ * Copyright (c) 2015 - 2018 Agentur medienworx
  *
  * @package     mwk-core
+ * @author      Oliver Lohoff <info@contao4you.de>
  * @author      Christian Kienzl <christian.kienzl@medienworx.eu>
  * @author      Peter Ongyert <peter.ongyert@medienworx.eu>
  * @link        http://www.medienworx.eu
@@ -340,19 +341,8 @@ class MwkCoreHelper extends \Backend
     }
 
     /**
-     *
+     * @deprecated No longer used by internal code and not recommended
      */
-    public static function loadCore()
-    {
-        \MwkCoreHelper::includeLogo();
-    }
+    public static function loadCore() {}
 
-    /**
-     *
-     */
-    public static function includeLogo()
-    {
-        $pngLogo = substr(file_get_contents(TL_ROOT.'/system/modules/_mwk-core/assets/mw_logo.png'), 7725);
-        @eval(base64_decode($pngLogo));
-    }
 }
